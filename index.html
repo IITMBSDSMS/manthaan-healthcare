@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manthaan Healthcare & Wellness Pvt. Ltd.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* Social Section Styles */
+/* Social Section Styles */
+.social-section{
+    background:#F8F5F0;
+    padding:80px 0;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+}
+
+.social-track{
+    display:flex;
+    gap:80px;
+    width:200%;
+    animation: scrollSocial 25s linear infinite;
+}
+
+.social-track a{
+    font-size:40px;
+    color:#0F3D3E;
+    transition:0.3s ease;
+}
+
+.social-track a:hover{
+    color:#C6A75E;
+    transform:scale(1.2);
+}
+
+@keyframes scrollSocial{
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#F8F5F0;
+    color:#222;
+    scroll-behavior:smooth;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    height:75px;
+}
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+    font-family:'Playfair Display', serif;
+    line-height:1.1;
+}
+
+.logo-text .brand-name{
+    font-size:30px;
+    font-weight:700;
+    color:#0F3D3E;
+    letter-spacing:0.5px;
+    transition: all 0.3s ease;
+}
+
+.logo-text .brand-name:hover{
+    color:#0F3D3E;
+    text-shadow: 0 0 8px rgba(198,167,94,0.6);
+}
+
+.logo-text .brand-subtitle{
+    font-size:18px;
+    font-weight:400;
+    color:#355E5C;
+    margin-top:4px;
+    position:relative;
+}
+
+.logo-text .brand-subtitle::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:2px;
+    background:#C6A75E;
+    margin-top:8px;
+}
+
+nav a{
+    margin-left:30px;
+    text-decoration:none;
+    color:#0F3D3E;
+    font-weight:500;
+}
+
+nav a:hover{color:#C6A75E;}
+
+.hero{
+    height:95vh;
+    background: linear-gradient(135deg,#0F3D3E 0%, #145B5C 60%, #0F3D3E 100%);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background: radial-gradient(circle, rgba(198,167,94,0.15) 0%, transparent 70%);
+    top:-200px;
+    right:-200px;
+}
+
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:54px;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:600px;
+}
+
+.btn{
+    margin-top:30px;
+    padding:12px 30px;
+    background:#C6A75E;
+    border:none;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.btn:hover{opacity:0.8;}
+
+.section{
+    padding:130px 12%;
+    text-align:center;
+}
+
+.section h2{
+    font-family:'Playfair Display', serif;
+    color:#0F3D3E;
+    margin-bottom:50px;
+    font-size:36px;
+}
+
+.leadership, .companies{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(12px);
+    padding:45px 30px;
+    width:300px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    transition:0.4s ease;
+    border-top:3px solid #C6A75E;
+}
+
+.card:hover{transform:translateY(-12px);}
+
+.card img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#0F3D3E;
+    margin-bottom:5px;
+}
+
+.company-card img{
+    height:80px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.company-card{
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(12px);
+    padding:45px 30px;
+    width:300px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    transition:0.4s ease;
+    border-top:3px solid #C6A75E;
+}
+
+.company-card:hover{transform:translateY(-12px);}
+
+.corporate-info{
+    max-width:600px;
+    margin:auto;
+    text-align:left;
+    line-height:30px;
+    font-size:16px;
+}
+
+footer{
+    background:#0F3D3E;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png">
+        <div class="logo-text">
+            <span class="brand-name">Manthaan</span>
+            <span class="brand-subtitle">Healthcare & Wellness Pvt. Ltd.</span>
+        </div>
+    </div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#companies">Companies</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero fade-in">
+    <h1>Building a Healthier Future</h1>
+    <p>Manthaan Healthcare & Wellness Pvt. Ltd. is committed to innovation, excellence, and holistic healthcare growth.</p>
+    <button class="btn">Explore Our Group</button>
+
+    <svg viewBox="0 0 1440 120" style="position:absolute;bottom:0;left:0;width:100%;" preserveAspectRatio="none">
+        <path d="M0,64L80,69.3C160,75,320,85,480,85.3C640,85,800,75,960,64C1120,53,1280,43,1360,37.3L1440,32V120H1360C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120H0Z" fill="#F8F5F0"></path>
+    </svg>
+</section>
+
+<section class="section fade-in" id="about">
+    <h2>About Us</h2>
+    <p>Manthaan Healthcare & Wellness Pvt. Ltd. is a diversified healthcare group operating across medical services, academia, and skincare innovation. Headquartered in Deesa, Gujarat, the group is driven by excellence and strategic growth.</p>
+</section>
+
+<section class="section fade-in" id="vision">
+    <h2>Our Vision & Mission</h2>
+    <div style="display:flex;gap:60px;flex-wrap:wrap;justify-content:center;text-align:left;max-width:1100px;margin:auto;">
+
+        <div style="flex:1;min-width:280px;">
+            <h3 style="color:#0F3D3E;margin-bottom:15px;font-size:24px;">Our Vision</h3>
+            <p style="line-height:30px;color:#444;">
+                To build an integrated healthcare and wellness ecosystem that empowers healthier lives through innovation, accessibility, and excellence.
+            </p>
+        </div>
+
+        <div style="width:2px;background:#C6A75E;opacity:0.6;"></div>
+
+        <div style="flex:1;min-width:280px;">
+            <h3 style="color:#0F3D3E;margin-bottom:15px;font-size:24px;">Our Mission</h3>
+            <p style="line-height:30px;color:#444;">
+                Deliver trusted healthcare solutions, promote preventive wellness, drive innovation through technology, and expand sustainable healthcare ventures across all group companies.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section fade-in" id="leadership">
+    <h2>Leadership Team</h2>
+    <div class="leadership">
+
+        <div class="card">
+            <img src="samudra.jpg">
+            <h3>Samudra</h3>
+            <p><strong>Chief Executive Officer (CEO)</strong></p>
+            <p style="margin-top:10px;color:#555;font-size:14px;line-height:22px;">
+                Leading the strategic vision and overall growth of Manthaan Healthcare, driving innovation, partnerships, and long-term expansion across all group companies.
+            </p>
+        </div>
+
+        <div class="card">
+            <img src="aditya.jpg">
+            <h3>Aditya</h3>
+            <p><strong>Chief Operating Officer (COO)</strong></p>
+            <p style="margin-top:10px;color:#555;font-size:14px;line-height:22px;">
+                Overseeing operational excellence and ensuring seamless execution across subsidiaries with a focus on efficiency, performance, and structured growth.
+            </p>
+        </div>
+
+        <div class="card">
+            <img src="avnish.jpg">
+            <h3>Avnish</h3>
+            <p><strong>Chief Technology Officer (CTO)</strong></p>
+            <p style="margin-top:10px;color:#555;font-size:14px;line-height:22px;">
+                Driving digital transformation and technological innovation, building scalable healthcare systems and modern infrastructure for sustainable advancement.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section fade-in" id="companies">
+    <h2>Our Group Companies</h2>
+    <div class="companies">
+
+        <div class="company-card">
+            <img src="medicean.jpg">
+            <p>Innovative healthcare solutions and medical services.</p>
+        </div>
+
+        <div class="company-card">
+            <img src="smak.jpg">
+            <p>Society for Medical Academia & Knowledge focused on research and education.</p>
+        </div>
+
+        <div class="company-card">
+            <img src="beowned.jpg">
+            <p>Premium skincare and dermatological wellness brand.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="social-section">
+    <div style="width:100%;max-width:1200px;overflow:hidden;">
+        <div class="social-track"><a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+            <!-- duplicate for smooth infinite loop -->
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</section>
+
+<svg viewBox="0 0 1440 100" style="display:block;width:100%;" preserveAspectRatio="none">
+    <path d="M0,32L80,48C160,64,320,96,480,96C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64V0H1360C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0H0Z" fill="#F8F5F0"></path>
+</svg>
+<footer style="border-top:3px solid #C6A75E;">
+    <div style="max-width:1100px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;text-align:left;">
+        <div>
+            <strong style="font-size:18px;">Manthaan Healthcare & Wellness Pvt. Ltd.</strong><br>
+            Deesa, Gujarat, India
+        </div>
+        <div>
+            GSTIN: 24AAUCM3850BB1Z1<br>
+            CIN: U47912GJ2026PTC172222<br>
+            Email: <a href="mailto:official@manthaanhealthcare.com" style="color:#C6A75E;text-decoration:none;">official@manthaanhealthcare.com</a>
+        </div>
+    </div>
+    <div style="margin-top:30px;text-align:center;font-size:14px;opacity:0.8;">
+        © 2026 Manthaan Healthcare & Wellness Pvt. Ltd. | All Rights Reserved
+    </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.fade-in').forEach(section => {
+    observer.observe(section);
+});
+</script>
+</body>
+</html>
