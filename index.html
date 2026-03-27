@@ -1,425 +1,973 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Manthaan Healthcare & Wellness Pvt. Ltd.</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Manthaan Healthcare & Wellness ─ Deep Tech Ecosystem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            /* Trustworthy Clinical & Medical Palette */
+            --bg-base: #F8FAFC;         /* Very soft, clean clinical off-white */
+            --bg-card: #FFFFFF;         /* Pure white for depth and cleanliness */
+            --primary: #0081C9;         /* Trustworthy Medical Blue */
+            --primary-dark: #003366;    /* Deep Navy */
+            --accent: #5C9CE6;          /* Healthcare Light Blue */
+            
+            --text-main: #1E293B;       /* High-contrast charcoal */
+            --text-muted: #475569;      /* Slate gray for readability without harshness */
+            
+            --border-light: rgba(0, 0, 0, 0.08);
+            --border-primary: rgba(0, 129, 201, 0.2);
+            
+            --shadow-soft: 0 12px 32px rgba(0, 51, 102, 0.04);
+            --shadow-hover: 0 20px 48px rgba(0, 51, 102, 0.08);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-/* Social Section Styles */
-/* Social Section Styles */
-.social-section{
-    background:#F8F5F0;
-    padding:80px 0;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-}
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-.social-track{
-    display:flex;
-    gap:80px;
-    width:200%;
-    animation: scrollSocial 25s linear infinite;
-}
+        /* Ambient CSS Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 50% -20%, rgba(0, 129, 201, 0.04) 0%, transparent 70%);
+            z-index: -2;
+            pointer-events: none;
+        }
 
-.social-track a{
-    font-size:40px;
-    color:#0F3D3E;
-    transition:0.3s ease;
-}
+        .mesh-gradient {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(92, 156, 230, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 70% 30%, rgba(0, 51, 102, 0.02) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+            animation: slowSpin 60s infinite linear;
+        }
 
-.social-track a:hover{
-    color:#C6A75E;
-    transform:scale(1.2);
-}
+        @keyframes slowSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-@keyframes scrollSocial{
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-}
-*{margin:0;padding:0;box-sizing:border-box;}
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 5%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
 
-body{
-    font-family:'Poppins', sans-serif;
-    background:#F8F5F0;
-    color:#222;
-    scroll-behavior:smooth;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+        }
 
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:white;
-    box-shadow:0 2px 15px rgba(0,0,0,0.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+        .logo img {
+            height: 48px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
 
-.logo img{
-    height:75px;
-}
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 0.5px;
+        }
 
-.logo-text{
-    display:flex;
-    flex-direction:column;
-    font-family:'Playfair Display', serif;
-    line-height:1.1;
-}
+        .brand-subtitle {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
 
-.logo-text .brand-name{
-    font-size:30px;
-    font-weight:700;
-    color:#0F3D3E;
-    letter-spacing:0.5px;
-    transition: all 0.3s ease;
-}
+        nav {
+            display: flex;
+            gap: 40px;
+        }
 
-.logo-text .brand-name:hover{
-    color:#0F3D3E;
-    text-shadow: 0 0 8px rgba(198,167,94,0.6);
-}
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
 
-.logo-text .brand-subtitle{
-    font-size:18px;
-    font-weight:400;
-    color:#355E5C;
-    margin-top:4px;
-    position:relative;
-}
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            bottom: -6px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
 
-.logo-text .brand-subtitle::after{
-    content:"";
-    display:block;
-    width:60px;
-    height:2px;
-    background:#C6A75E;
-    margin-top:8px;
-}
+        nav a:hover {
+            color: var(--primary-dark);
+        }
 
-nav a{
-    margin-left:30px;
-    text-decoration:none;
-    color:#0F3D3E;
-    font-weight:500;
-}
+        nav a:hover::after {
+            width: 100%;
+        }
 
-nav a:hover{color:#C6A75E;}
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
 
-.hero{
-    height:95vh;
-    background: linear-gradient(135deg,#0F3D3E 0%, #145B5C 60%, #0F3D3E 100%);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    position:relative;
-    overflow:hidden;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            padding: 140px 5% 80px;
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 40px;
+        }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    background: radial-gradient(circle, rgba(198,167,94,0.15) 0%, transparent 70%);
-    top:-200px;
-    right:-200px;
-}
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
 
-.hero h1{
-    font-family:'Playfair Display', serif;
-    font-size:54px;
-    margin-bottom:20px;
-    letter-spacing:1px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5.5vw, 75px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.hero p{
-    font-size:18px;
-    max-width:600px;
-}
+        .hero p {
+            font-size: clamp(18px, 2vw, 22px);
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
 
-.btn{
-    margin-top:30px;
-    padding:12px 30px;
-    background:#C6A75E;
-    border:none;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-}
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-.btn:hover{opacity:0.8;}
+        .infra-svg {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 129, 201, 0.1));
+        }
 
-.section{
-    padding:130px 12%;
-    text-align:center;
-}
+        .infra-svg .float-1 { animation: floatAnim 6s ease-in-out infinite; }
+        .infra-svg .float-2 { animation: floatAnim 8s ease-in-out infinite reverse; }
+        .infra-svg .float-3 { animation: floatAnim 7s ease-in-out infinite 1s; }
+        .infra-svg .float-4 { animation: floatAnim 9s ease-in-out infinite 2s; }
+        
+        .infra-svg .draw-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLineAnim 3s ease forwards 0.5s;
+        }
 
-.section h2{
-    font-family:'Playfair Display', serif;
-    color:#0F3D3E;
-    margin-bottom:50px;
-    font-size:36px;
-}
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
 
-.leadership, .companies{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
-}
+        @keyframes drawLineAnim {
+            to { stroke-dashoffset: 0; }
+        }
 
-.card{
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(12px);
-    padding:45px 30px;
-    width:300px;
-    border-radius:20px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.08);
-    transition:0.4s ease;
-    border-top:3px solid #C6A75E;
-}
+        /* Elegant Pill Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 48px;
+            background: var(--primary);
+            color: #FFFFFF;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 24px rgba(0, 129, 201, 0.25);
+        }
 
-.card:hover{transform:translateY(-12px);}
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.2);
+            color: #FFFFFF;
+        }
 
-.card img{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    object-fit:cover;
-    margin-bottom:20px;
-}
+        /* Clean Structure Divider */
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+            margin: 40px 0;
+        }
 
-.card h3{
-    color:#0F3D3E;
-    margin-bottom:5px;
-}
+        /* Ecosystem Section */
+        .ecosystem-section {
+            padding: 120px 5%;
+            position: relative;
+        }
 
-.company-card img{
-    height:80px;
-    object-fit:contain;
-    margin-bottom:20px;
-}
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
 
-.company-card{
-    background:rgba(255,255,255,0.8);
-    backdrop-filter:blur(12px);
-    padding:45px 30px;
-    width:300px;
-    border-radius:20px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.08);
-    transition:0.4s ease;
-    border-top:3px solid #C6A75E;
-}
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 50px);
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
 
-.company-card:hover{transform:translateY(-12px);}
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
 
-.corporate-info{
-    max-width:600px;
-    margin:auto;
-    text-align:left;
-    line-height:30px;
-    font-size:16px;
-}
+        /* 2.5D Ecosystem Grid */
+        .eco-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
 
-footer{
-    background:#0F3D3E;
-    color:white;
-    text-align:center;
-    padding:30px;
-    margin-top:50px;
-}
+        .core-node {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 24px;
+            padding: 40px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow-soft);
+        }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
-}
+        .core-node h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        
+        .core-node p {
+            font-size: 13px;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-</style>
+        .subsidiaries-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .sub-node {
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .sub-node:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .sub-node img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 2px solid var(--bg-base);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            background: #fff;
+        }
+
+        .sub-node h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+        
+        .sub-node p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 100px 5%;
+            background: radial-gradient(circle at center, rgba(0, 129, 201, 0.03) 0%, var(--bg-base) 100%);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .leader-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-primary);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .leader-card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
+        }
+
+        .leader-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .leader-card h3 {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .leader-card h4 {
+            font-size: 13px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .leader-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 80px 5% 40px;
+            margin-top: 60px;
+            color: #FFFFFF;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+        }
+
+        .footer-svg .spin-slow {
+            animation: spinAnim 20s linear infinite;
+            transform-origin: 50% 50%;
+        }
+
+        .footer-svg .spin-fast {
+            animation: spinAnim 10s linear infinite reverse;
+            transform-origin: 50% 50%;
+        }
+
+        .footer-svg .pulse {
+            animation: pulseAnim 3s ease-in-out infinite alternate;
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes pulseAnim {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links h4 {
+            color: #FFFFFF;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Breakpoints */
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 20px;
+                gap: 30px;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            nav.mobile-active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+                padding-bottom: 60px;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: clamp(36px, 10vw, 48px);
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 17px;
+                margin-bottom: 30px;
+            }
+
+            .hero h1, .hero p {
+                text-align: center;
+            }
+
+            .hero-visual {
+                margin-top: 30px;
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            .ecosystem-section, .leadership-section {
+                padding: 80px 5%;
+            }
+
+            .core-node {
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .footer-brand {
+                max-width: 100%;
+            }
+
+            .footer-visual {
+                min-width: auto;
+                margin: 0;
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .sub-node {
+                min-width: 100%;
+                padding: 24px 16px;
+            }
+
+            .leader-card {
+                padding: 30px 20px;
+            }
+
+            .eco-container {
+                gap: 40px;
+            }
+            
+            .subsidiaries-row {
+                gap: 20px;
+            }
+            
+            footer {
+                padding: 60px 5% 30px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <div class="logo">
-        <img src="logo.png">
-        <div class="logo-text">
-            <span class="brand-name">Manthaan</span>
-            <span class="brand-subtitle">Healthcare & Wellness Pvt. Ltd.</span>
+    <!-- Professional Ambient Background -->
+    <div class="ambient-bg"></div>
+    <div class="mesh-gradient"></div>
+
+    <!-- Navigation Header -->
+    <header id="navbar">
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Manthaan Logo" draggable="false">
+            <div class="logo-text">
+                <span class="brand-name">Manthaan</span>
+                <span class="brand-subtitle">Ecosystem</span>
+            </div>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
         </div>
-    </div>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#companies">Companies</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+        <nav id="nav-links">
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#leadership">Leadership</a>
+        </nav>
+    </header>
 
-<section class="hero fade-in">
-    <h1>Building a Healthier Future</h1>
-    <p>Manthaan Healthcare & Wellness Pvt. Ltd. is committed to innovation, excellence, and holistic healthcare growth.</p>
-    <button class="btn">Explore Our Group</button>
+    <!-- Elevated Hero Section -->
+    <section class="hero reveal">
+        <div class="hero-content">
+            <h1>Building a Healthier Future, Together.</h1>
+            <p>Manthaan Healthcare is a premier, integrated ecosystem operating across advanced medical services, deep research academia, and cutting-edge skincare innovation.</p>
+            <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
+        </div>
+        <div class="hero-visual">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" class="infra-svg">
+               <defs>
+                  <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                     <stop offset="0%" stop-color="var(--primary-dark)" />
+                     <stop offset="100%" stop-color="var(--primary)" />
+                  </linearGradient>
+                  <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                     <stop offset="0%" stop-color="var(--accent)" />
+                     <stop offset="100%" stop-color="#34D399" />
+                  </linearGradient>
+               </defs>
+               
+               <!-- Base Ground Plate -->
+               <path d="M 50 400 L 300 480 L 550 400 L 300 320 Z" fill="rgba(0, 129, 201, 0.05)" stroke="var(--border-primary)" stroke-width="2" />
+               <path d="M 50 400 L 300 480 L 550 400" fill="none" class="draw-line" stroke="var(--primary)" stroke-width="2" />
 
-    <svg viewBox="0 0 1440 120" style="position:absolute;bottom:0;left:0;width:100%;" preserveAspectRatio="none">
-        <path d="M0,64L80,69.3C160,75,320,85,480,85.3C640,85,800,75,960,64C1120,53,1280,43,1360,37.3L1440,32V120H1360C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120H0Z" fill="#F8F5F0"></path>
-    </svg>
-</section>
+               <!-- Main Hospital Building Infrastructure -->
+               <rect x="220" y="150" width="160" height="200" rx="10" fill="#FFFFFF" stroke="var(--primary-dark)" stroke-width="3" />
+               <path d="M 285 180 h 30 v 30 h 30 v 30 h -30 v 30 h -30 v -30 h -30 v -30 h 30 z" fill="url(#primary-grad)" />
+               <rect x="240" y="280" width="30" height="20" rx="4" fill="var(--border-primary)" />
+               <rect x="285" y="280" width="30" height="20" rx="4" fill="var(--border-primary)" />
+               <rect x="330" y="280" width="30" height="20" rx="4" fill="var(--border-primary)" />
+               <rect x="240" y="315" width="30" height="20" rx="4" fill="var(--border-primary)" />
+               <rect x="285" y="315" width="30" height="20" rx="4" fill="var(--border-primary)" />
+               <rect x="330" y="315" width="30" height="20" rx="4" fill="var(--border-primary)" />
 
-<section class="section fade-in" id="about">
-    <h2>About Us</h2>
-    <p>Manthaan Healthcare & Wellness Pvt. Ltd. is a diversified healthcare group operating across medical services, academia, and skincare innovation. Headquartered in Deesa, Gujarat, the group is driven by excellence and strategic growth.</p>
-</section>
+               <!-- Side Wing (Research) -->
+               <path d="M 120 280 L 220 280 L 220 380 L 120 380 Z" fill="rgba(255,255,255,0.9)" stroke="var(--accent)" stroke-width="3" />
+               <circle cx="170" cy="330" r="20" fill="none" stroke="url(#accent-grad)" stroke-width="6" />
+               <circle cx="170" cy="330" r="8" fill="url(#accent-grad)" />
 
-<section class="section fade-in" id="vision">
-    <h2>Our Vision & Mission</h2>
-    <div style="display:flex;gap:60px;flex-wrap:wrap;justify-content:center;text-align:left;max-width:1100px;margin:auto;">
+               <!-- Side Wing (Clinic) -->
+               <path d="M 380 250 L 480 250 L 480 380 L 380 380 Z" fill="rgba(255,255,255,0.9)" stroke="var(--primary)" stroke-width="3" />
+               <path d="M 400 315 L 420 315 L 430 290 L 440 340 L 450 315 L 470 315" fill="none" stroke="var(--primary-dark)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 
-        <div style="flex:1;min-width:280px;">
-            <h3 style="color:#0F3D3E;margin-bottom:15px;font-size:24px;">Our Vision</h3>
-            <p style="line-height:30px;color:#444;">
-                To build an integrated healthcare and wellness ecosystem that empowers healthier lives through innovation, accessibility, and excellence.
-            </p>
+               <!-- Data Nodes / Network -->
+               <path d="M 300 420 L 300 480" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4" />
+               <path d="M 170 380 L 170 435" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4" />
+               <path d="M 430 380 L 430 435" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4" />
+
+               <!-- Floating Orbs -->
+               <g class="float-1">
+                 <circle cx="100" cy="180" r="15" fill="#FFFFFF" stroke="var(--primary)" stroke-width="3" />
+                 <circle cx="100" cy="180" r="6" fill="var(--primary)" />
+               </g>
+               <path d="M 115 180 L 220 210" fill="none" stroke="var(--border-primary)" stroke-width="2" />
+
+               <g class="float-2">
+                 <circle cx="500" cy="140" r="20" fill="#FFFFFF" stroke="var(--accent)" stroke-width="3" />
+                 <circle cx="500" cy="140" r="8" fill="var(--accent)" />
+               </g>
+               <path d="M 480 148 L 380 180" fill="none" stroke="var(--border-primary)" stroke-width="2" />
+
+               <g class="float-3">
+                 <circle cx="440" cy="60" r="10" fill="#FFFFFF" stroke="var(--primary-dark)" stroke-width="2" />
+               </g>
+               <path d="M 432 65 L 340 150" fill="none" stroke="var(--border-primary)" stroke-width="2" />
+
+               <g class="float-4">
+                 <circle cx="200" cy="80" r="12" fill="#FFFFFF" stroke="var(--primary)" stroke-width="2" />
+               </g>
+               <path d="M 210 90 L 250 150" fill="none" stroke="var(--border-primary)" stroke-width="2" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Clean Structural Divider -->
+    <div class="divider"></div>
+
+    <!-- Professional Ecosystem Section -->
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="section-header reveal">
+            <h2>The Ecosystem Core</h2>
+            <p>An integrated network of elite healthcare and wellness enterprises.</p>
         </div>
 
-        <div style="width:2px;background:#C6A75E;opacity:0.6;"></div>
+        <div class="eco-container reveal">
+            <!-- Core Node -->
+            <div class="core-node">
+                <h3>Manthaan</h3>
+                <p>Ecosystem Hub</p>
+            </div>
 
-        <div style="flex:1;min-width:280px;">
-            <h3 style="color:#0F3D3E;margin-bottom:15px;font-size:24px;">Our Mission</h3>
-            <p style="line-height:30px;color:#444;">
-                Deliver trusted healthcare solutions, promote preventive wellness, drive innovation through technology, and expand sustainable healthcare ventures across all group companies.
-            </p>
+            <!-- Subsidiaries Row -->
+            <div class="subsidiaries-row">
+                <div class="sub-node">
+                    <img src="medicean.jpg" alt="Medicean Logo" draggable="false" onerror="this.src='medicean 2.png'">
+                    <h4>Medicean</h4>
+                    <p>Advanced clinical research and specialized medical infrastructure.</p>
+                </div>
+
+                <div class="sub-node">
+                    <img src="smak.jpg" alt="SMAK Logo" draggable="false">
+                    <h4>SMAK</h4>
+                    <p>Forward-thinking academia and profound physiological research.</p>
+                </div>
+
+                <div class="sub-node">
+                    <img src="beowned.jpg" alt="BeOwned Logo" draggable="false">
+                    <h4>BeOwned</h4>
+                    <p>High-end aesthetic dermatology and next-generation skincare formulation.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<section class="section fade-in" id="leadership">
-    <h2>Leadership Team</h2>
-    <div class="leadership">
-
-        <div class="card">
-            <img src="samudra.jpg">
-            <h3>Samudra</h3>
-            <p><strong>Chief Executive Officer (CEO)</strong></p>
-            <p style="margin-top:10px;color:#555;font-size:14px;line-height:22px;">
-                Leading the strategic vision and overall growth of Manthaan Healthcare, driving innovation, partnerships, and long-term expansion across all group companies.
-            </p>
+    <!-- Refined Leadership Section -->
+    <section class="leadership-section" id="leadership">
+        <div class="section-header reveal">
+            <h2>Executive Board</h2>
+            <p>The leadership directing our global standards and strategic vision.</p>
         </div>
-
-        <div class="card">
-            <img src="aditya.jpg">
-            <h3>Aditya</h3>
-            <p><strong>Chief Operating Officer (COO)</strong></p>
-            <p style="margin-top:10px;color:#555;font-size:14px;line-height:22px;">
-                Overseeing operational excellence and ensuring seamless execution across subsidiaries with a focus on efficiency, performance, and structured growth.
-            </p>
+        
+        <div class="grid-layout">
+            <div class="leader-card reveal">
+                <img src="samudra.jpg" alt="Samudra" draggable="false">
+                <h3>Samudra</h3>
+                <h4>Chief Executive Officer</h4>
+                <p>Leading the strategic vision and overall trajectory of the Manthaan ecosystem towards global standards.</p>
+            </div>
+            
+            <div class="leader-card reveal">
+                <img src="aditya.jpg" alt="Aditya" draggable="false">
+                <h3>Aditya</h3>
+                <h4>Chief Operating Officer</h4>
+                <p>Architecting robust operational frameworks and ensuring seamless scalable execution across all sectors.</p>
+            </div>
+            
+            <div class="leader-card reveal">
+                <img src="avnish.jpg" alt="Avnish" draggable="false">
+                <h3>Avnish</h3>
+                <h4>Chief Technology Officer</h4>
+                <p>Spearheading digital innovation and building highly resilient state-of-the-art medical infrastructure setups.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <img src="avnish.jpg">
-            <h3>Avnish</h3>
-            <p><strong>Chief Technology Officer (CTO)</strong></p>
-            <p style="margin-top:10px;color:#555;font-size:14px;line-height:22px;">
-                Driving digital transformation and technological innovation, building scalable healthcare systems and modern infrastructure for sustainable advancement.
-            </p>
+    <!-- Clean Modern Footer -->
+    <footer>
+        <div class="footer-content reveal">
+            <div class="footer-brand">
+                <h3>Manthaan Ecosystem</h3>
+                <p>Headquartered in Deesa, Gujarat, India. Pioneering advancements across deep academia, clinical scale, and wellness.</p>
+            </div>
+            
+            <div class="footer-visual reveal">
+                <svg viewBox="0 0 100 100" class="footer-svg">
+                    <defs>
+                        <radialGradient id="footerGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
+                            <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#footerGlow)" />
+                    <!-- Outer orbital ring -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+                    <g class="spin-slow">
+                        <circle cx="50" cy="10" r="3" fill="var(--accent)" />
+                        <circle cx="50" cy="90" r="3" fill="var(--accent)" />
+                        <path d="M 50 10 A 40 40 0 0 1 90 50" fill="none" stroke="var(--accent)" stroke-width="1.5" />
+                    </g>
+                    
+                    <!-- Inner orbital ring -->
+                    <circle cx="50" cy="50" r="26" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                    <g class="spin-fast">
+                        <path d="M 24 50 A 26 26 0 0 0 50 76" fill="none" stroke="#FFFFFF" stroke-width="2" />
+                        <circle cx="50" cy="76" r="2" fill="#FFFFFF" />
+                        <circle cx="24" cy="50" r="2" fill="#FFFFFF" />
+                    </g>
+
+                    <!-- Center Medical Cross -->
+                    <g class="pulse">
+                        <path d="M 46 36 h 8 v 10 h 10 v 8 h -10 v 10 h -8 v -10 h -10 v -8 h 10 z" fill="#FFFFFF" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal & Contact</h4>
+                <a href="#">GSTIN: 24AAUCM3850BB1Z1</a>
+                <a href="#">CIN: U47912GJ2026PTC172222</a>
+                <a href="mailto:official@manthaanhealthcare.com">official@manthaanhealthcare.com</a>
+            </div>
         </div>
-
-    </div>
-</section>
-
-<section class="section fade-in" id="companies">
-    <h2>Our Group Companies</h2>
-    <div class="companies">
-
-        <div class="company-card">
-            <img src="medicean.jpg">
-            <p>Innovative healthcare solutions and medical services.</p>
+        
+        <div class="copyright">
+            © 2026 Manthaan Healthcare & Wellness Pvt. Ltd. All Rights Reserved.
         </div>
+    </footer>
 
-        <div class="company-card">
-            <img src="smak.jpg">
-            <p>Society for Medical Academia & Knowledge focused on research and education.</p>
-        </div>
+    <!-- Simplified, Robust JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-active');
+            const icon = menuBtn.querySelector('i');
+            if (navLinks.classList.contains('mobile-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
 
-        <div class="company-card">
-            <img src="beowned.jpg">
-            <p>Premium skincare and dermatological wellness brand.</p>
-        </div>
+        // Close mobile menu on link click
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('mobile-active');
+                menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
 
-    </div>
-</section>
+        // Elegant Scroll Reveal Animation
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, { 
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
 
+        // Staggered delay for leader cards and sub-nodes
+        document.querySelectorAll('.reveal').forEach((el, index) => {
+            // Apply a slight stagger if elements are in a row
+            if (el.classList.contains('leader-card') || el.classList.contains('sub-node')) {
+                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            }
+            revealObserver.observe(el);
+        });
 
-<section class="social-section">
-    <div style="width:100%;max-width:1200px;overflow:hidden;">
-        <div class="social-track"><a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-
-            <!-- duplicate for smooth infinite loop -->
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </div>
-</section>
-
-<svg viewBox="0 0 1440 100" style="display:block;width:100%;" preserveAspectRatio="none">
-    <path d="M0,32L80,48C160,64,320,96,480,96C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64V0H1360C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0H0Z" fill="#F8F5F0"></path>
-</svg>
-<footer style="border-top:3px solid #C6A75E;">
-    <div style="max-width:1100px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;text-align:left;">
-        <div>
-            <strong style="font-size:18px;">Manthaan Healthcare & Wellness Pvt. Ltd.</strong><br>
-            Deesa, Gujarat, India
-        </div>
-        <div>
-            GSTIN: 24AAUCM3850BB1Z1<br>
-            CIN: U47912GJ2026PTC172222<br>
-            Email: <a href="mailto:official@manthaanhealthcare.com" style="color:#C6A75E;text-decoration:none;">official@manthaanhealthcare.com</a>
-        </div>
-    </div>
-    <div style="margin-top:30px;text-align:center;font-size:14px;opacity:0.8;">
-        © 2026 Manthaan Healthcare & Wellness Pvt. Ltd. | All Rights Reserved
-    </div>
-</footer>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.fade-in').forEach(section => {
-    observer.observe(section);
-});
-</script>
+        // Smooth header blur effect adjustment on scroll
+        const header = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.padding = '16px 5%';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+                header.style.padding = '24px 5%';
+            }
+        }, { passive: true });
+    </script>
 </body>
 </html>
